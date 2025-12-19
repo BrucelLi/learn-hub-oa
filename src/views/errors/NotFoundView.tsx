@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
-const NotFound: FC = () => {
+const NotFoundView: FC = () => {
   return <div>Not found</div>
 }
 
-export default NotFound
+export default NotFoundView
