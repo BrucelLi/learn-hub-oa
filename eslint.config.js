@@ -37,8 +37,10 @@ export default defineConfig([
     },
 
     rules: {
+      'no-console': 'error',
+      'no-debugger': 'error',
       'no-unused-vars': 'off',
-      'import/no-unresolved': ['error', { ignore: ['^/'] }],
+      'import/no-unresolved': ['off', { ignore: ['^/'] }],
       'import/no-dynamic-require': 'warn',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error'
