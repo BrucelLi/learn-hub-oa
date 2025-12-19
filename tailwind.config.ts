@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
 
-import { themeConfig } from './src/configs/theme'
+import { THEME_CONFIG } from './src/configs/theme'
 
 const config: Config = {
   important: true,
@@ -9,33 +9,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ...themeConfig.colorConfig
+        ...THEME_CONFIG.COLOR_CONFIG
       },
       fontFamily: {
-        ...themeConfig.typographyConfig.fontFamily
+        ...THEME_CONFIG.TYPOGRAPHY_CONFIG.fontFamily
       },
       fontSize: {
-        ...themeConfig.typographyConfig.fontSize
+        ...THEME_CONFIG.TYPOGRAPHY_CONFIG.fontSize
       },
       fontWeight: {
-        ...themeConfig.typographyConfig.fontWeight
+        ...THEME_CONFIG.TYPOGRAPHY_CONFIG.fontWeight
       },
       screens: {
-        ...themeConfig.screenConfig
+        ...THEME_CONFIG.SCREEN_CONFIG
       },
       spacing: {
-        ...themeConfig.uiDesignWidth,
+        ...THEME_CONFIG.UI_DESIGN_WIDTH,
         'vt-section-gap': 'var(--section-gap)'
       },
       boxShadow: {
-        ...themeConfig.shadowConfig
+        ...THEME_CONFIG.SHADOW_CONFIG
       }
     }
   },
 
   plugins: [
     plugin((pluginAPI) => {
-      const { fontSize, fontWeight, lineHeight, letterSpacing } = themeConfig.typographyConfig
+      const { fontSize, fontWeight, lineHeight, letterSpacing } = THEME_CONFIG.TYPOGRAPHY_CONFIG
       const components: Record<string, Record<string, string>> = {}
 
       for (const [sizeKey, sizeVal] of Object.entries(fontSize)) {

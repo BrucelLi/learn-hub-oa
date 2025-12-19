@@ -1,4 +1,5 @@
-export const colorConfig = {
+// ColorConfig
+export const COLOR_CONFIG = {
   alias: {
     red: {
       50: '#FCF4F4',
@@ -53,7 +54,8 @@ export const colorConfig = {
   while: '#fff'
 }
 
-export const typographyConfig = {
+// TypographyConfig
+export const TYPOGRAPHY_CONFIG = {
   fontFamily: {
     base: ['Zen Maru Gothic', 'sans-serif'], // default init by base.css
     ubuntu: ['Ubuntu', 'sans-serif']
@@ -90,26 +92,30 @@ export const typographyConfig = {
   letterSpacing: { zero: '0', tight: '0.02em', loose: '0.04em' }
 }
 
-export const screenConfig = {
+// ScreenConfig
+export const SCREEN_CONFIG = {
   sm: '431px',
   md: '768px',
   lg: '1024px',
   xl: '1280px'
 }
 
-export const uiDesignWidth = {
+// UiDesignWidth
+export const UI_DESIGN_WIDTH = {
   pc: '1024px',
   phone: '431px'
 }
 
-const shadowConfig = {
+// ShadowConfig
+const SHADOW_CONFIG = {
   base: '0 0 10px 0 rgba(0, 0, 0, 0.1)'
 }
 
-export const themeConfig = {
-  colorConfig,
-  typographyConfig,
-  screenConfig,
-  uiDesignWidth,
-  shadowConfig
+// ThemeConfig
+export const THEME_CONFIG = {
+  COLOR_CONFIG,
+  TYPOGRAPHY_CONFIG,
+  SCREEN_CONFIG,
+  UI_DESIGN_WIDTH,
+  SHADOW_CONFIG
 } as const
