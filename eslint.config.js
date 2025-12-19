@@ -3,7 +3,7 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import importPlugin from 'eslint-plugin-import'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
-import simpleImportSort from "eslint-plugin-simple-import-sort";
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -17,34 +17,31 @@ export default defineConfig([
       ...tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
-      importPlugin.flatConfigs.recommended,
+      importPlugin.flatConfigs.recommended
     ],
     plugins: {
-      "simple-import-sort": simpleImportSort,
+      'simple-import-sort': simpleImportSort
     },
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
-      globals: globals.browser,
+      globals: globals.browser
     },
 
     settings: {
       'import/resolver': {
         typescript: {
-          project: './tsconfig.json',
-        },
-      },
+          project: './tsconfig.json'
+        }
+      }
     },
 
     rules: {
       'no-unused-vars': 'off',
-      'import/no-unresolved': [
-        'error',
-        { ignore: ['^/'] },
-      ],
+      'import/no-unresolved': ['error', { ignore: ['^/'] }],
       'import/no-dynamic-require': 'warn',
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
-    },
-  },
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error'
+    }
+  }
 ])

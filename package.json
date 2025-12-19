@@ -1,13 +1,13 @@
 {
   "name": "learn-hub-oa",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "type-check": "vue-tsc --build",
+    "type-check": "tsc --noEmit",
     "lint": "run-s eslint format --print-label",
     "lint:ci": "run-p eslint:ci format:ci --print-label",
     "eslint": "eslint . --fix",
@@ -17,8 +17,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -33,7 +33,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^16.5.0",
-    "husky": "^8.0.0",
+    "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "npm-run-all": "4.1.5",
     "prettier": "3.7.4",
