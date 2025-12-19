@@ -10,5 +10,16 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        modifyVars: {
+          // 这里可以覆盖 antd 主题变量
+          '@primary-color': '#1DA57A'
+        }
+      }
+    }
   }
 })

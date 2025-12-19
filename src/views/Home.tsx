@@ -1,3 +1,4 @@
+import { Button } from 'antd'
 import type { FC } from 'react'
 
 import { useUserStore } from '@/stores/useUserStore.ts'
@@ -8,16 +9,16 @@ const Home: FC = () => {
   const reduce = useUserStore((state) => state.reduce)
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center h-screen space-y-4">
       <div className="text-2xl bg-amber-600">title</div>
-      <p className="text-[24px]">{num}</p>
+      <p className="t-18px-bold-150-tight text-alias-rose-600">{num}</p>
       <div>
-        <button onClick={() => increate(1)}>increate</button>
+        <Button onClick={() => increate(1)}>increate</Button>
       </div>
       <div>
-        <button onClick={() => reduce(1)}>reduce</button>
+        <Button onClick={() => reduce(1)}>reduce</Button>
       </div>
-    </>
+    </div>
   )
 }
 
