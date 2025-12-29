@@ -1,0 +1,10 @@
+{
+  "name": {
+    "required": "Username cannot be empty"
+  },
+  "password": {
+    "help": "Password requires uppercase, lowercase, special characters and at least 7 characters",
+    "required": "Password cannot be empty",
+    "pattern": "Incorrect password format"
+  }
+}
