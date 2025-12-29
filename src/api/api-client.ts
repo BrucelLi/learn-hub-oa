@@ -5,7 +5,7 @@ export type InternalAxiosRequestExpansionConfig = InternalAxiosRequestConfig & {
   showLoading?: boolean
 }
 
-export const axiosInstance = axios.create({
+const instance = axios.create({
   baseURL: 'http://192.168.110.21:8080/api',
   timeout: 5000,
   headers: {
@@ -13,7 +13,7 @@ export const axiosInstance = axios.create({
   }
 })
 
-axiosInstance.interceptors.request.use(
+instance.interceptors.request.use(
   (config: InternalAxiosRequestExpansionConfig) => {
     return config
   },
@@ -25,11 +25,11 @@ axiosInstance.interceptors.request.use(
   }
 )
 
-axiosInstance.interceptors.response.use(
-  (response) => {
-    return response
-  },
-  (error) => {
-    return Promise.reject(error)
-  }
+instance.interceptors.response.use(
+  (response) => response,
+  (error) => Promise.reject(error)
 )
+
+export const axiosInstance = <T>(config: InternalAxiosRequestConfig): Promise<T> => {
+  return instance.request<T>(config).then((response) => response.data)
+}

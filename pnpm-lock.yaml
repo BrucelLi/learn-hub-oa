@@ -10,9 +10,6 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.90.12
         version: 5.90.12(react@19.2.3)
-      '@types/postcss-pxtorem':
-        specifier: ^6.1.0
-        version: 6.1.0
       antd:
         specifier: ^6.1.1
         version: 6.1.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -53,6 +50,9 @@ importers:
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.4
+      '@types/postcss-pxtorem':
+        specifier: ^6.1.0
+        version: 6.1.0
       '@types/react':
         specifier: ^19.2.5
         version: 19.2.7

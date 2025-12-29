@@ -27,3 +27,4 @@ dist-ssr
 .env.staging
 .env.production
 src/api/generated/*
+.history/*

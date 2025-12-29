@@ -1,21 +1,23 @@
 import { defineConfig } from 'orval'
 
-import { axiosInstance } from '@/api/api-client.ts'
-
 export default defineConfig({
-  api: {
-    input: './openai.json',
+  petstore: {
+    input: {
+      target: 'http://127.0.0.1:8000/api.json'
+    },
     output: {
       target: 'src/api/generated/generated.ts',
-      client: 'react-query',
       httpClient: 'axios',
       mode: 'tags',
-      hooks: {
-        enabled: true
-      },
       override: {
-        axios: axiosInstance
+        mutator: {
+          path: './src/api/api-client.ts',
+          name: 'axiosInstance'
+        }
       }
+    },
+    hooks: {
+      afterAllFilesWrite: ['npx prettier --write']
     }
   }
 })
