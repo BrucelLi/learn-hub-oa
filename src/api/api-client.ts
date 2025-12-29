@@ -1,4 +1,4 @@
-import axios, { type InternalAxiosRequestConfig } from 'axios'
+import axios, { type AxiosRequestConfig, type InternalAxiosRequestConfig } from 'axios'
 
 export type InternalAxiosRequestExpansionConfig = InternalAxiosRequestConfig & {
   skipAuth?: boolean
@@ -7,29 +7,25 @@ export type InternalAxiosRequestExpansionConfig = InternalAxiosRequestConfig & {
 
 const instance = axios.create({
   baseURL: 'http://192.168.110.21:8080/api',
-  timeout: 5000,
-  headers: {
-    Authorization: 'Bearer TOKEN_HERE'
-  }
+  timeout: 5000
 })
 
-instance.interceptors.request.use(
-  (config: InternalAxiosRequestExpansionConfig) => {
-    return config
-  },
-  (error) => {
-    if (error instanceof Error) {
-      return Promise.reject(error)
-    }
-    return Promise.reject(new Error(String(error)))
+instance.interceptors.request.use((config: InternalAxiosRequestExpansionConfig) => {
+  if (!config.skipAuth) {
+    const token = 'TOKEN_HERE'
+    config.headers = Object.assign({}, config.headers, {
+      Authorization: `Bearer ${token}`
+    })
   }
-)
+  return config
+})
 
 instance.interceptors.response.use(
-  (response) => response,
-  (error) => Promise.reject(error)
+  (res) => res,
+  (err) => Promise.reject(err)
 )
 
-export const axiosInstance = <T>(config: InternalAxiosRequestConfig): Promise<T> => {
-  return instance.request<T>(config).then((response) => response.data)
+export const axiosInstance = async <T>(config: AxiosRequestConfig): Promise<T> => {
+  const res = await instance.request<T>(config)
+  return res.data
 }
